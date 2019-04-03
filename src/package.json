@@ -1,7 +1,7 @@
 {
     "name": "nativescript-secure-android-keystore",
     "version": "1.0.0",
-    "description": "Your awesome NativeScript plugin.",
+    "description": "Encrypt and Store data in keystore NativeScript plugin.",
     "main": "secure-android-keystore",
     "typings": "index.d.ts",
     "nativescript": {
@@ -38,8 +38,8 @@
         "iOS"
     ],
     "author": {
-        "name": "Your Name",
-        "email": "youremail@yourdomain.com"
+        "name": "Acharya Anil Suryavanshi",
+        "email": "thakurinfotech@gmail.com"
     },
     "bugs": {
         "url": "https://github.com/acharyaks90/nativescript-secure-android-keystore/issues"
