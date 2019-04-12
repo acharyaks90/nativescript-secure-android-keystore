@@ -1,12 +1,13 @@
 # secure android keystore 
+ [nativescript-urlhandler](https://github.com/acharyaks90/nativescript-secure-android-keystore)
 
-Add your plugin badges here. See [nativescript-urlhandler](https://github.com/hypery2k/nativescript-urlhandler) for example.
-
-Encrypt the data 
+Encrypt the data and decrypt whenever want to use 
+It save data in shared preferences using keystore encryption
+Currently only works with Android 
 
 ## (Optional) Prerequisites / Requirements
 
-Describe the prerequisites that the user need to have installed before using your plugin. See [nativescript-firebase plugin](https://github.com/eddyverbruggen/nativescript-plugin-firebase) for example.
+Android version 
 
 ## Installation
 
@@ -18,21 +19,34 @@ tns plugin add nativescript-secure-android-keystore
 
 ## Usage 
 
-Describe any usage specifics for your plugin. Give examples for Android, iOS, Angular if needed. See [nativescript-drop-down](https://www.npmjs.com/package/nativescript-drop-down) for example.
+Describe any usage specifics for your plugin. Give examples for Android, iOS, Angular if needed. See [nativescript-secure-android-keystore](https://www.npmjs.com/package/nativescript-secure-android-keystore)
 	
 	```javascript
             import { SecureAndroidKeystore } from "nativescript-secure-android-keystore";
             new SecureAndroidKeystore().storeData(keystoreKeyAlias: string, data: string);
-    ```)
+    ```
+     ```typescript
+     import { SecureAndroidKeystore } from 'nativescript-secure-android-keystore';
+
+        
+        private secureAndroidKeystore: SecureAndroidKeystore;
+
+        //Inside some method         
+            this.secureAndroidKeystore = new SecureAndroidKeystore();
+            this.secureAndroidKeystore.storeData('mykey','pass1234');
+            this.secureAndroidKeystore.retrieveData('mykey').then(res=>{
+            this.message = res;
+            console.log('message', this.message );
+        
+     ```
+
 
 ## API
-
-Describe your plugin methods and properties here. See [nativescript-feedback](https://github.com/EddyVerbruggen/nativescript-feedback) for example.
     
 | Property | Default | Description |
 | --- | --- | --- |
-| some property | property default value | property description, default values, etc.. |
-| another property | property default value | property description, default values, etc.. |
+| Store data method | storeData('key', 'passdata') | method for saving any data,  |
+| Get the data |retrieveData | Method for data getting and using which return promise |
     
 ## License
 

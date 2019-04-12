@@ -9,6 +9,10 @@ export class HelloWorldModel extends Observable {
     super();
 
     this.secureAndroidKeystore = new SecureAndroidKeystore();
-    this.message = this.secureAndroidKeystore.message;
+     this.secureAndroidKeystore.storeData('mykey','pass1234');
+     this.secureAndroidKeystore.retrieveData('mykey').then(res=>{
+      this.message = res;
+      console.log('message', this.message );
+    })
   }
 }

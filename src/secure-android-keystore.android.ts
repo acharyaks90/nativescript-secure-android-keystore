@@ -15,7 +15,15 @@ export class SecureAndroidKeystore extends Common {
     constructor() {
         super();
     }
-
+    
+    /**
+      * @jsdoc method
+      * @name storeData
+      * @description Encrypt the data and store it in shared preference of android 
+      * @memberof NsfsecureService
+      * @param keystoreKeyAlias
+      * @param data 
+      */
     storeData(keystoreKeyAlias: string, data: string): Promise<void> {
 
         return new Promise((resolve, reject) => {
@@ -38,7 +46,13 @@ export class SecureAndroidKeystore extends Common {
         });
       }
     
-    
+      /**
+      * @jsdoc method
+      * @name retrieveData
+      * @description Decypt the data and return it from shared preference of android
+      * @memberof NsfsecureService
+      * @param keystoreKeyAlias
+      */
       retrieveData(keystoreKeyAlias: string): Promise<string> {
     
         return new Promise((resolve, reject) => {
@@ -57,20 +71,39 @@ export class SecureAndroidKeystore extends Common {
           }
         });
       }
-    
+     /**
+      * @jsdoc method
+      * @name encryptedDataExists
+      * @description Check the existence of encrypted data in  shared preference of android
+      * @memberof NsfsecureService
+      * @param keystoreKeyAlias
+      */
       encryptedDataExists(keystoreKeyAlias: string): boolean {
         this.keystoreKeyAlias = keystoreKeyAlias;
         const preferences = android.preference.PreferenceManager.getDefaultSharedPreferences(utils.ad.getApplicationContext());
         return preferences.contains(SecureAndroidKeystore.name + this.keystoreKeyAlias);
       }
-    
+     /**
+      * @jsdoc method
+      * @name encryptedDataExists
+      * @description Delete encrypted data in  shared preference of android
+      * @memberof NsfsecureService
+      * @param keystoreKeyAlias
+      */
       deleteEncryptedData(keystoreKeyAlias: string): void {
         this.keystoreKeyAlias = keystoreKeyAlias;
         const preferences = android.preference.PreferenceManager.getDefaultSharedPreferences(utils.ad.getApplicationContext());
         preferences.edit().remove(SecureAndroidKeystore.name + this.keystoreKeyAlias).apply();
       }
     
-      
+       /**
+      * @jsdoc method
+      * @name createKey
+      * @description Generate the key by Createing the keystore named 'AndroidKeyStore' using  ALGORITHM AES , BLOCK_MODE_CBC and ENCRYPTION_PADDING_PKCS7
+      * @memberof NsfsecureService
+      * @param keystoreKeyAlias
+      */
+
       private createKey(keystoreKeyAlias: string): void {
         try {
           this.keyStore = java.security.KeyStore.getInstance('AndroidKeyStore');
@@ -95,6 +128,14 @@ export class SecureAndroidKeystore extends Common {
       }
     
     
+   /**
+      * @jsdoc method
+      * @name initCipher
+      * @description Start the cipher for encryption and decryption
+      * @memberof NsfsecureService
+      * @param mode : number 
+      * @param keystoreKeyAlias
+      */
       private initCipher(mode: number, keystoreKeyAlias: string): void {
         try {
           this.keyStore = java.security.KeyStore.getInstance('AndroidKeyStore');
@@ -135,7 +176,14 @@ export class SecureAndroidKeystore extends Common {
           }
         }
       }
-    
+       /**
+      * @jsdoc method
+      * @name tryEncrypt
+      * @description Encrypt the string and store in shared preferences 
+      * @memberof NsfsecureService
+      * @param secret : string input
+      */
+
       private tryEncrypt(secret: java.lang.String): void {
         try {
           this.encryptionIv = this.cipher.getIV();
@@ -152,7 +200,12 @@ export class SecureAndroidKeystore extends Common {
           });
         }
       }
-    
+       /**
+      * @jsdoc method
+      * @name tryDecrypt
+      * @description decrypt the string and and return
+      * @memberof NsfsecureService
+      */
       private tryDecrypt(): string {
         try {
           const preferences = android.preference.PreferenceManager.getDefaultSharedPreferences(utils.ad.getApplicationContext());
@@ -171,6 +224,12 @@ export class SecureAndroidKeystore extends Common {
       }
     
     
+   /**
+      * @jsdoc method
+      * @name onAuthenticationSucceeded
+      * @description encryp or decrypt the string and and return promise
+      * @memberof NsfsecureService
+      */
       public onAuthenticationSucceeded() {
         if (this.cipherInEncryptMode) {
           this.initCipher(javax.crypto.Cipher.ENCRYPT_MODE, this.keystoreKeyAlias);
