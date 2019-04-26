@@ -1,17 +1,14 @@
-# secure android keystore 
- [nativescript-urlhandler](https://github.com/acharyaks90/nativescript-secure-android-keystore)
+# Secure data in android keystore 
+ [Github](https://github.com/acharyaks90/nativescript-secure-android-keystore)
 
 Encrypt the data and decrypt whenever want to use 
 It save data in shared preferences using keystore encryption
 Currently only works with Android 
 
-## (Optional) Prerequisites / Requirements
-
-Android version 
+## Prerequisites / Requirements
+Android version Latest Version
 
 ## Installation
-
-Describe your plugin installation steps. Ideally it would be something like:
 
 ```javascript
 tns plugin add nativescript-secure-android-keystore
@@ -20,12 +17,15 @@ tns plugin add nativescript-secure-android-keystore
 ## Usage 
 
 Describe any usage specifics for your plugin. Give examples for Android, iOS, Angular if needed. See [nativescript-secure-android-keystore](https://www.npmjs.com/package/nativescript-secure-android-keystore)
-	
-	```javascript
+
+
+##Javascript	
+```javascript
             import { SecureAndroidKeystore } from "nativescript-secure-android-keystore";
             new SecureAndroidKeystore().storeData(keystoreKeyAlias: string, data: string);
-    ```
-     ```typescript
+```
+##Typescript 
+```typescript
      import { SecureAndroidKeystore } from 'nativescript-secure-android-keystore';
 
         
@@ -38,7 +38,7 @@ Describe any usage specifics for your plugin. Give examples for Android, iOS, An
             this.message = res;
             console.log('message', this.message );
         
-     ```
+ ```
 
 
 ## API
