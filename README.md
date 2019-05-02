@@ -19,12 +19,12 @@ tns plugin add nativescript-secure-android-keystore
 Describe any usage specifics for your plugin. Give examples for Android, iOS, Angular if needed. See [nativescript-secure-android-keystore](https://www.npmjs.com/package/nativescript-secure-android-keystore)
 
 
-##Javascript	
+## Javascript	
 ```javascript
             import { SecureAndroidKeystore } from "nativescript-secure-android-keystore";
             new SecureAndroidKeystore().storeData(keystoreKeyAlias: string, data: string);
 ```
-##Typescript 
+## Typescript 
 ```typescript
      import { SecureAndroidKeystore } from 'nativescript-secure-android-keystore';
 
@@ -40,6 +40,50 @@ Describe any usage specifics for your plugin. Give examples for Android, iOS, An
         
  ```
 
+ ## Angular Typescript 
+```typescript
+app.module.ts
+    ...
+     import { SecureAndroidKeystore } from 'nativescript-secure-android-keystore';
+     ....
+     
+@NgModule({
+    .
+    .
+    .
+    bootstrap: [
+        AppComponent
+    ],
+  
+    providers: [
+        SecureAndroidKeystore
+    ],
+    .
+    .
+    .
+})
+
+any.component.ts
+
+        ...
+     import { SecureAndroidKeystore } from 'nativescript-secure-android-keystore';
+     ....
+
+     constructor(private secureAndroidKeystore: SecureAndroidKeystore){
+
+     }
+        
+     anyMethod(){
+          //Inside some method         
+            this.secureAndroidKeystore.storeData('mykey','pass1234');
+            this.secureAndroidKeystore.retrieveData('mykey').then(res=>{
+            this.message = res;
+            console.log('message', this.message );
+     }
+       
+        
+ ```
+
 
 ## API
     
@@ -51,3 +95,5 @@ Describe any usage specifics for your plugin. Give examples for Android, iOS, An
 ## License
 
 Apache License Version 2.0, January 2004
+
+## For Any issue please raise issue in github repo 
