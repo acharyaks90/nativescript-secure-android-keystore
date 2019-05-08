@@ -21,8 +21,21 @@ Describe any usage specifics for your plugin. Give examples for Android, iOS, An
 
 ## Javascript	
 ```javascript
-            import { SecureAndroidKeystore } from "nativescript-secure-android-keystore";
-            new SecureAndroidKeystore().storeData(keystoreKeyAlias: string, data: string);
+        
+const  SecureAndroidKeystore =  require("nativescript-secure-android-keystore");
+
+function createViewModel() {
+     ...
+    var secure = new SecureAndroidKeystore.SecureAndroidKeystore();
+    secure.storeData('mykey', 'pass1234');
+    secure.retrieveData('mykey').then(res => {
+        console.log(res);
+    });
+    ....
+    return viewModel;
+}
+
+
 ```
 ## Typescript 
 ```typescript
@@ -37,6 +50,7 @@ Describe any usage specifics for your plugin. Give examples for Android, iOS, An
             this.secureAndroidKeystore.retrieveData('mykey').then(res=>{
             this.message = res;
             console.log('message', this.message );
+            })
         
  ```
 
@@ -79,6 +93,8 @@ any.component.ts
             this.secureAndroidKeystore.retrieveData('mykey').then(res=>{
             this.message = res;
             console.log('message', this.message );
+          })
+
      }
        
         
