@@ -1,6 +1,6 @@
 {
     "name": "nativescript-secure-android-keystore",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Encrypt and Store data in keystore NativeScript plugin.",
     "main": "secure-android-keystore",
     "typings": "index.d.ts",
