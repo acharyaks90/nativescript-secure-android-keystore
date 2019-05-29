@@ -113,3 +113,9 @@ any.component.ts
 Apache License Version 2.0, January 2004
 
 ## For Any issue please raise issue in github repo 
+
+## Tutorials
+
+Need a little more to get started?  Check out tutorial.
+
+* [Secure Android keystore in a NativeScript Angular Application](https://wordpress.com/post/anilkumarsuryavanshi.wordpress.com/353/)
