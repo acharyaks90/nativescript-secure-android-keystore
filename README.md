@@ -1,3 +1,8 @@
+[![npm](https://img.shields.io/npm/v/nativescript-secure-android-keystore.svg)](https://www.npmjs.com/package/nativescript-secure-android-keystore)
+[![npm](https://img.shields.io/npm/dt/nativescript-secure-android-keystore.svg?label=npm%20downloads)](https://www.npmjs.com/package/nativescript-secure-android-keystore)
+[![Twitter Follow](https://img.shields.io/twitter/follow/acharyaks90.svg?style=social&label=Follow%20me)](https://twitter.com/acharyaks90)
+
+
 # Secure data in android keystore 
  [Github](https://github.com/acharyaks90/nativescript-secure-android-keystore)
 
